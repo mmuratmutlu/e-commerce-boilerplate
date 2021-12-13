@@ -1,17 +1,19 @@
-import React, { useCallback, useEffect, useState, createContext, useContext } from 'react'
+import React, { useCallback,useState, createContext, useContext ,useEffect} from 'react'
 import { Modal } from 'components'
 const ModalContext = createContext({} as any)
 
 const ModalProvider = (props: any) => {
     const [modal, setModal] = useState(undefined)
+    const [modalConfig, setModalConfig] = useState({})
+
     const unSetModal = useCallback(() => {
         setModal(undefined)
     }, [setModal])
 
     return (
-        <ModalContext.Provider value={{ unSetModal, setModal }} {...props} >
+        <ModalContext.Provider value={{ unSetModal, setModal,setModalConfig }} {...props} >
             {props.children}
-            {modal && <Modal modal={modal} unSetModal={unSetModal} />}
+            {modal && <Modal modal={modal} unSetModal={unSetModal} modalConfig={modalConfig} />}
         </ModalContext.Provider>
     )
 }

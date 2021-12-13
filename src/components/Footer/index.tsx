@@ -11,7 +11,7 @@ function Footer(props: any) {
 
 const Container = styled.div`
   width:100%;
-  background:black;
+  background:#5c61e7;
   height:500px;
 
 `

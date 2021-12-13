@@ -4,3 +4,8 @@ export { default as Header } from './Header'
 export { default as Modal } from './Modal'
 export { default as MainSlider } from './MainSlider'
 export { default as Footer } from './Footer'
+export { default as Badge } from './Badge'
+export { default as BasketItem } from './BasketItem'
+export { default as PlainButton } from './PlainButton'
+export { default as Input } from './Input'
+
