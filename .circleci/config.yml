@@ -1,10 +1,17 @@
 version: 2.1
 orbs:
   heroku: circleci/heroku@1.2.6
+jobs:
+  example-job:
+    docker:
+      # replace with your preferred image
+      - image: cimg/base:stable
+    steps:
+      - heroku/deploy-via-git:
+          api-key: '456cfc14-d5cc-4b63-b116-a544b238cfc9' 
+          app-name: edevelopment 
+          branch: circleci-project-setup 
 workflows:
-    example-workflow:
-      jobs:
-        - heroku/deploy-via-git:
-            api-key: '456cfc14-d5cc-4b63-b116-a544b238cfc9' 
-            app-name: edevelopment 
-            branch:  circleci-project-setup
+  example-workflow:
+    jobs:
+      - example-job
