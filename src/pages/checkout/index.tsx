@@ -1,33 +1,34 @@
-import type { NextPage } from "next";
-import styled from "styled-components";
-import { useFormik } from "formik";
-import { Input, PlainButton } from "components";
-const Checkout: NextPage = () => {
+import type { NextPage } from 'next'
+import styled from 'styled-components'
+import { useFormik } from 'formik'
+import { Input, PlainButton } from 'components'
+
+const Checkout: NextPage = function () {
   const { handleSubmit, handleChange, values } = useFormik({
     initialValues: {
-      name: "",
-      cargo: "",
-      country: "",
-      firstname: "",
-      lastname: "",
-      address: "",
-      postalcode: "",
-      city: "",
-      addressDetail: "",
-      campaigncode: "",
+      name: '',
+      cargo: '',
+      country: '',
+      firstname: '',
+      lastname: '',
+      address: '',
+      postalcode: '',
+      city: '',
+      addressDetail: '',
+      campaigncode: '',
     },
-    onSubmit: (values) => {
-      console.log({ values });
+    onSubmit: (items) => {
+      console.log({ items })
     },
-  });
+  })
 
   return (
     <Form>
       <Container>
         <Section
-          style={{ alignItems: "flex-end" }}
+          style={{ alignItems: 'flex-end' }}
           width="53.5%"
-          color={"#ffffff"}
+          color="#ffffff"
         >
           <Wrapper width="50%">
             <SubTitleText>İletişim Bilgisi</SubTitleText>
@@ -76,9 +77,9 @@ const Checkout: NextPage = () => {
               onChange={handleChange}
               value={values?.country}
               options={[
-                { value: "turkey", label: "Türkiye" },
-                { value: "germany", label: "Almanya" },
-                { value: "netherlands", label: "Hollanda" },
+                { value: 'turkey', label: 'Türkiye' },
+                { value: 'germany', label: 'Almanya' },
+                { value: 'netherlands', label: 'Hollanda' },
               ]}
             />
             <InputRow>
@@ -133,22 +134,22 @@ const Checkout: NextPage = () => {
           <Wrapper width="50%">
             <PlainButton
               onClick={(e: any) => {
-                e.preventDefault();
-                handleSubmit();
+                e.preventDefault()
+                handleSubmit()
               }}
-              style={{ marginTop: "30px", width: "30%" }}
+              style={{ marginTop: '30px', width: '30%' }}
             >
               Ödemeye Devam Et
             </PlainButton>
           </Wrapper>
         </Section>
         <Section
-          style={{ border: "none", alignItems: "flex-start" }}
+          style={{ border: 'none', alignItems: 'flex-start' }}
           width="46.5%"
-          color={"#fafafa"}
+          color="#fafafa"
         >
-          <Wrapper style={{ gap: "25px !important" }} width="40%">
-            <Seperator style={{ gap: "30px" }}></Seperator>
+          <Wrapper style={{ gap: '25px !important' }} width="40%">
+            <Seperator style={{ gap: '30px' }} />
 
             <InputRow>
               <Input
@@ -158,51 +159,50 @@ const Checkout: NextPage = () => {
                 onChange={handleChange}
                 value={values?.campaigncode}
               />
-              <div style={{ width: "30%" }}>
+              <div style={{ width: '30%' }}>
                 <PlainButton>Uygula</PlainButton>
               </div>
             </InputRow>
-            <Seperator></Seperator>
+            <Seperator />
             <div
-              style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+              style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}
             >
               <InfoContainer>
-                <text style={{ fontSize: "14px", color: "#323232" }}>
+                <text style={{ fontSize: '14px', color: '#323232' }}>
                   Subtotal
                 </text>
-                <text style={{ fontSize: "14px", color: "#323232" }}>
+                <text style={{ fontSize: '14px', color: '#323232' }}>
                   $749.95
                 </text>
               </InfoContainer>
               <InfoContainer>
-                <text style={{ fontSize: "14px", color: "#323232" }}>
+                <text style={{ fontSize: '14px', color: '#323232' }}>
                   Shipping
                 </text>
-                <text style={{ fontSize: "14px", color: "#323232" }}>
+                <text style={{ fontSize: '14px', color: '#323232' }}>
                   Calculated at next step
                 </text>
               </InfoContainer>
             </div>
-            <Seperator></Seperator>
+            <Seperator />
             <InfoContainer>
-              <text style={{ fontSize: "15px", color: "#323232" }}>Total</text>
-              <text style={{ fontSize: "18px", color: "#323232" }}>
+              <text style={{ fontSize: '15px', color: '#323232' }}>Total</text>
+              <text style={{ fontSize: '18px', color: '#323232' }}>
                 $749.95
               </text>
             </InfoContainer>
-
           </Wrapper>
         </Section>
       </Container>
     </Form>
-  );
-};
+  )
+}
 
 const Container = styled.div`
   display: flex;
   width: 100%;
   min-height: 100vh;
-`;
+`
 const Section = styled.div<{ width: string }>`
   display: flex;
   flex-direction: column;
@@ -210,34 +210,34 @@ const Section = styled.div<{ width: string }>`
   min-height: 100vh;
   background: ${(props) => props.color};
   border: 0.1px solid rgb(229, 229, 229, 1);
-`;
+`
 const Wrapper = styled.div<{ width: string }>`
   display:flex;
   flex-direction: column;
   width: ${(props) => props.width};
   padding 50px 50px 0 50px;
   gap:10px;
-`;
+`
 const Form = styled.form`
   width: 100%;
-`;
+`
 
 const SubTitleText = styled.text`
   margin: 20px 0;
   font-size: 18px;
-`;
+`
 const InputRow = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 10px;
-`;
+`
 const Seperator = styled.div`
   width: 100%;
   height: 1px;
   background: #e1e1e1;
-`;
+`
 const InfoContainer = styled.div`
   display: flex;
   justify-content: space-between;
-`;
-export default Checkout;
+`
+export default Checkout

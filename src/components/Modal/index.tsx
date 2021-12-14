@@ -1,49 +1,49 @@
-import styled from "styled-components";
-import { useEffect } from "react";
+import styled from 'styled-components'
+import { useEffect } from 'react'
 interface Modal {
-  open: boolean;
-  onClose(): any;
+  open: boolean
+  onClose(): any
 }
 function Modal({ modal, unSetModal, modalConfig = {} }: any) {
   useEffect(() => {
     const bind = (e: any) => {
       if (e.keyCode !== 27) {
-        return;
+        return
       }
 
       if (
         document.activeElement &&
-        ["INPUT", "SELECT"].includes(document.activeElement.tagName)
+        ['INPUT', 'SELECT'].includes(document.activeElement.tagName)
       ) {
-        return;
+        return
       }
 
-      unSetModal();
-    };
+      unSetModal()
+    }
 
-    document.addEventListener("keyup", bind);
-    return () => document.removeEventListener("keyup", bind);
-  }, [modal, unSetModal]);
+    document.addEventListener('keyup', bind)
+    return () => document.removeEventListener('keyup', bind)
+  }, [modal, unSetModal])
 
   if (modalConfig?.isNude) {
     return (
       <NudeContainer onClick={unSetModal}>
         <div
           onClick={(e) => {
-            e.stopPropagation(); //For stop click event on Wrapper
+            e.stopPropagation() //For stop click event on Wrapper
           }}
         >
           {modal}
         </div>
       </NudeContainer>
-    );
+    )
   } else {
     return (
       <Container onClick={unSetModal}>
         <Wrapper
           onClick={(e) => {
             //For stop click event on Wrapper
-            e.stopPropagation();
+            e.stopPropagation()
           }}
         >
           <UpperSection>
@@ -52,7 +52,7 @@ function Modal({ modal, unSetModal, modalConfig = {} }: any) {
           {modal}
         </Wrapper>
       </Container>
-    );
+    )
   }
 }
 const NudeContainer = styled.div`
@@ -64,7 +64,7 @@ const NudeContainer = styled.div`
   top: 0;
   justify-content: center;
   align-items: center;
-`;
+`
 const Container = styled.div`
   display: flex;
   position: fixed;
@@ -74,7 +74,7 @@ const Container = styled.div`
   top: 0;
   justify-content: center;
   align-items: center;
-`;
+`
 const Wrapper = styled.div`
   position: flex;
   flex-direction: column;
@@ -82,7 +82,7 @@ const Wrapper = styled.div`
   min-height: 200px;
   background: white;
   border-radius: 10px;
-`;
+`
 const UpperSection = styled.div`
   display: flex;
   width: 100%;
@@ -90,9 +90,9 @@ const UpperSection = styled.div`
   align-items: center;
   padding-right: 10px;
   justify-content: flex-end;
-`;
+`
 const CloseIcon = styled.text`
   font-size: 30px;
   cursor: pointer;
-`;
-export default Modal;
+`
+export default Modal

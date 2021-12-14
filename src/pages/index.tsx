@@ -1,12 +1,12 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import styled from "styled-components";
-import { Product, MainSlider } from "components";
-import { useModal } from "context/modal-context";
+import type { NextPage } from 'next'
+import Head from 'next/head'
+import Image from 'next/image'
+import styles from '../styles/Home.module.css'
+import styled from 'styled-components'
+import { Product, MainSlider } from 'components'
+import { useModal } from 'context/modal-context'
 const Home: NextPage = () => {
-  const { setModal, setModalConfig } = useModal();
+  const { setModal, setModalConfig } = useModal()
 
   return (
     <Container>
@@ -14,8 +14,8 @@ const Home: NextPage = () => {
       <GridContainer>
         <div
           onClick={() => {
-            setModalConfig({});
-            setModal(<div style={{ width: "500px", height: "500px" }}></div>);
+            setModalConfig({})
+            setModal(<div style={{ width: '500px', height: '500px' }}></div>)
           }}
         >
           <Product
@@ -33,8 +33,8 @@ const Home: NextPage = () => {
         <Product storeName="Hello Store" productName="Iphone 13"></Product>
       </GridContainer>
     </Container>
-  );
-};
+  )
+}
 
 const Container = styled.div`
   display: flex;
@@ -43,8 +43,7 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
-  
-`;
+`
 const GridContainer = styled.div`
   width: 100%;
   display: grid;
@@ -52,5 +51,5 @@ const GridContainer = styled.div`
   padding: 10px;
   height: 1200px;
   margin-top: 200px;
-`;
-export default Home;
+`
+export default Home

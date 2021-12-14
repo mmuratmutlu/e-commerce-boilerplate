@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 function PlainButton(props: any) {
   return (
     <Button style={props.style} onClick={props.onClick}>
       {props?.children}
     </Button>
-  );
+  )
 }
 
 const Button = styled.button`
@@ -15,6 +15,6 @@ const Button = styled.button`
   color: white;
   padding: 0;
   border: none;
-  cursor:pointer;
-`;
-export default PlainButton;
+  cursor: pointer;
+`
+export default PlainButton

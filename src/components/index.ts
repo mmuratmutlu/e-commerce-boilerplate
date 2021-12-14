@@ -8,4 +8,3 @@ export { default as Badge } from './Badge'
 export { default as BasketItem } from './BasketItem'
 export { default as PlainButton } from './PlainButton'
 export { default as Input } from './Input'
-

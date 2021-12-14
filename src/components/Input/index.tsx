@@ -1,13 +1,13 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 // import Image from "next/image";
 
 function Input(props: any) {
   switch (props?.type) {
-    case "radio":
+    case 'radio':
       return (
         <label
           style={{
-            cursor: "pointer",
+            cursor: 'pointer',
           }}
         >
           <RadioContainer>
@@ -16,24 +16,24 @@ function Input(props: any) {
             {props?.logo && <Icon src={props?.logo} height={20} />}
           </RadioContainer>
         </label>
-      );
-    case "select":
+      )
+    case 'select':
       return (
         <Select
           name={props?.name}
           value={props?.value}
           onChange={props?.onChange}
           onBlur={props?.onBlur}
-          style={{ display: "block" }}
+          style={{ display: 'block' }}
         >
           <option value="" label={props?.label} />
           {props?.options?.map((item: any, key: any) => (
             <option key={key} value={item.value} label={item?.label} />
           ))}
         </Select>
-      );
+      )
     default:
-      return <StyledTextInput  {...props} ></StyledTextInput>;
+      return <StyledTextInput {...props}></StyledTextInput>
   }
 }
 
@@ -50,7 +50,7 @@ const StyledTextInput = styled.input`
   line-height: inherit;
   color: #333333;
   border-color: #d9d9d9;
-`;
+`
 const RadioContainer = styled.div`
   display: flex;
   border: 1px transparent solid;
@@ -64,11 +64,11 @@ const RadioContainer = styled.div`
   line-height: inherit;
   color: #333333;
   border-color: #d9d9d9;
-`;
+`
 const Icon = styled.img`
   margin: 0 5px;
-`;
-const StyledRadioInput = styled.input``;
+`
+const StyledRadioInput = styled.input``
 const Select = styled.select`
   display: flex;
   -webkit-appearance: none;
@@ -81,5 +81,5 @@ const Select = styled.select`
   background: white;
   border-color: #d9d9d9;
   border-radius: 5px;
-`;
-export default Input;
+`
+export default Input
