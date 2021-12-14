@@ -5,5 +5,5 @@ workflows:
     heroku-deploy:
       jobs:
         - heroku/deploy-via-git:
-            api-key: '456cfc14-d5cc-4b63-b116-a544b238cfc9' 
-            app-name: edevelopment 
+            api-key: 456cfc14-d5cc-4b63-b116-a544b238cfc9
+            app-name: edevelopment
