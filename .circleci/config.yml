@@ -2,9 +2,9 @@ version: 2.1
 orbs:
   heroku: circleci/heroku@1.2.6
 workflows:
-    heroku_deploy:
+    example-workflow:
       jobs:
         - heroku/deploy-via-git:
-            api-key: 456cfc14-d5cc-4b63-b116-a544b238cfc9
-            app-name: edevelopment
-            branch: circleci-project-setup
+            api-key: '456cfc14-d5cc-4b63-b116-a544b238cfc9' 
+            app-name: edevelopment 
+            branch:  circleci-project-setup
