@@ -2,7 +2,38 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import { Badge, PlainButton } from 'components'
 import { useModal } from 'context/modal-context'
-
+import CounterInput from 'react-counter-input'
+function _renderBasketItem() {
+  return (
+    <BasketItem>
+      <BasketImage />
+      <InfoContainer>
+        <ItemHeaderText>The Full Stack</ItemHeaderText>
+        <ItemSubText>Size: 154cm</ItemSubText>
+        <ItemSubText>Color: Syntax</ItemSubText>
+        <CounterInput
+          wrapperStyle={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderStyle: 'solid',
+            borderColor: '#e1e1e1',
+            borderWidth: '1px',
+            width: '120px',
+            borderRadius: '5px',
+          }}
+          min={0}
+          max={10}
+          onCountChange={(count: number) => console.log(count)}
+        />
+      </InfoContainer>
+      <RightSection>
+        <span>&#10005;</span>
+        <PriceText>$1,499.90</PriceText>
+      </RightSection>
+    </BasketItem>
+  )
+}
 function Header() {
   const { setModal, setModalConfig } = useModal()
   function onClickBasket() {
@@ -29,10 +60,10 @@ function Header() {
             </Badge>
           </div>
         </ModalHeader>
-        {false ? (
+        {true ? (
           <>
-            <ModalBody></ModalBody>
-            <ModalFooter></ModalFooter>
+            <ModalBody>{[0, 1, 2].map(() => _renderBasketItem())}</ModalBody>
+            {/* <ModalFooter></ModalFooter> */}
           </>
         ) : (
           <NoneItem>
@@ -44,6 +75,9 @@ function Header() {
         )}
       </BasketModal>
     )
+  }
+  function handleSearchButton() {
+    alert('hau')
   }
   return (
     <Container>
@@ -57,17 +91,26 @@ function Header() {
       </BannerSection>
       <GradientLine />
 
-      <Wrapper></Wrapper>
+      <Wrapper>
+        <SearchBar>
+          <SearchInput></SearchInput>
+          <SubmitButton onClick={handleSearchButton}>Ara</SubmitButton>
+        </SearchBar>
+      </Wrapper>
     </Container>
   )
 }
 
 const Container = styled.div`
   width: 100%;
+  margin: 0 0 100px 0;
 `
 const Wrapper = styled.div`
+  display: flex;
   width: 100%;
-  height: 180px;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
 `
 const BannerSection = styled.div`
   display: flex;
@@ -132,4 +175,65 @@ const NoneItem = styled.div`
   color: rgb(107 114 128);
   font-size: 18px;
 `
+const SearchBar = styled.div`
+  display: flex;
+  width: 30%;
+`
+const SearchInput = styled.input`
+  border: 1px transparent solid;
+  width: 100%;
+  background-clip: padding-box;
+  display: block;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0.9285714286em 0.7857142857em;
+  word-break: normal;
+  line-height: inherit;
+  color: #333333;
+  border-color: #d9d9d9;
+`
+const SubmitButton = styled.button`
+  cursor: pointer !important;
+  height: 43px;
+  width: 60px;
+  padding: 0;
+  border: none;
+  background: #5c61e7;
+  color: white;
+  font-weight: bold;
+`
+const BasketItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 30px;
+`
+const BasketImage = styled.img`
+  width: 100px;
+  height: 100px;
+  background: red;
+`
+const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding-left: 10px;
+`
+const RightSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: black;
+  padding: 10px;
+`
+const ItemHeaderText = styled.text`
+  margin-top: 10px;
+  font-size: 18px;
+`
+const ItemSubText = styled.text`
+  font-size: 12px;
+  margin: 5px 0;
+`
+const PriceText = styled.text``
 export default Header
