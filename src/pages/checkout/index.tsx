@@ -202,6 +202,12 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   min-height: 100vh;
+  @media (max-width: 480px) {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    padding:20px;
+  }
+  
 `
 const Section = styled.div<{ width: string }>`
   display: flex;
@@ -210,6 +216,14 @@ const Section = styled.div<{ width: string }>`
   min-height: 100vh;
   background: ${(props) => props.color};
   border: 0.1px solid rgb(229, 229, 229, 1);
+  
+  @media (max-width: 480px) {
+    width:100% !important;
+    align-items:center !important;
+    min-height: 0;
+    background:white;
+    border:none;
+  }
 `
 const Wrapper = styled.div<{ width: string }>`
   display:flex;
@@ -217,6 +231,11 @@ const Wrapper = styled.div<{ width: string }>`
   width: ${(props) => props.width};
   padding 50px 50px 0 50px;
   gap:10px;
+  @media (max-width: 480px) {
+    padding:0;
+    width:100%;
+  }
+  
 `
 const Form = styled.form`
   width: 100%;

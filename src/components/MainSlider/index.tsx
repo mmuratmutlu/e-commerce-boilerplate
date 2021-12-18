@@ -38,12 +38,7 @@ const Item = styled.div`
   height: 500px;
 `
 const Slick = styled(Slider)`
-  .slick-dots {
-    top: 0px;
-    margin-left: 60%;
-    transform: rotate(90deg);
-    width:300px;
-  }
+
   .slick-dots li button:before {
 
     color: white !important;

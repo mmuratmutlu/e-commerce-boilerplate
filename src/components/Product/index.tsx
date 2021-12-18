@@ -20,6 +20,9 @@ function Product(props: Product) {
 
 const Container = styled.div`
   width: 245px;
+  @media (max-width: 480px) {
+    width:100%;
+  }
 `
 const Photo = styled.img`
   width: 100%;

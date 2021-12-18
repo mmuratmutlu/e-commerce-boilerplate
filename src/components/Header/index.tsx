@@ -58,7 +58,12 @@ function Header() {
               setModal(null)
             }}
           >
-            <Icon src="/svg/backIcon.svg" height={20} width={20} />
+            <Icon
+              id="backIcon"
+              src="/svg/backIcon.svg"
+              height={20}
+              width={20}
+            />
           </div>
           <div
             onClick={() => {
@@ -109,12 +114,11 @@ function Header() {
 }
 
 const Container = styled.div`
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   margin: 0 0 50px 0;
-  
 `
 const Wrapper = styled.div`
   display: flex;
@@ -122,6 +126,9 @@ const Wrapper = styled.div`
   width: 44%;
   align-items: center;
   justify-content: center;
+  @media (max-width: 480px) {
+    width: 90%;
+  }
 `
 const BannerSection = styled.div`
   display: flex;
@@ -149,6 +156,10 @@ const BasketModal = styled.div`
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   border-radius: 7px;
+  @media (max-width: 480px) {
+    width: 100%;
+    margin: 0;
+  }
 `
 const ModalHeader = styled.div`
   display: flex;
@@ -165,10 +176,18 @@ const ModalHeader = styled.div`
   border-style: solid;
   border-width: 0 0 1px 0;
   border-color: rgb(209 213 219);
+  @media (max-width: 480px) {
+    #backIcon {
+      transform: rotate(180deg);
+    }
+  }
 `
 const ModalBody = styled.div`
   width: 100%;
   background-color: rgb(249 250 251);
+  @media (max-width: 480px) {
+    height: 100vh;
+  }
 `
 const ModalFooter = styled.div`
   width: 100%;
@@ -196,7 +215,6 @@ const BasketItem = styled.div`
 const BasketImage = styled.img`
   width: 100px;
   height: 100px;
-  background: red;
 `
 const InfoContainer = styled.div`
   display: flex;

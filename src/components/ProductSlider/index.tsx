@@ -47,7 +47,6 @@ function ProductSlider() {
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  background: red;
   position: relative;
 `
 const MainImage = styled.img`
@@ -67,7 +66,6 @@ const MiniImageContainer = styled.div`
 const MiniImage = styled.img`
   width: 55px;
   height: 55px;
-  background: red;
   object-fit: cover;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;

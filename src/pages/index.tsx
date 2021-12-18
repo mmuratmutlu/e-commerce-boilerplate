@@ -1,13 +1,15 @@
 import type { NextPage } from 'next'
 import styled from 'styled-components'
-import { Product, MainSlider } from 'components'
+import { Product, MainSlider,ProductSlider } from 'components'
 import { useModal } from 'context/modal-context'
 const Home: NextPage = () => {
   const { setModal, setModalConfig } = useModal()
 
   return (
     <Container>
-      <MainSlider />
+        <SliderContainer>
+          <ProductSlider />
+        </SliderContainer>
       <GridContainer>
         <div
           onClick={() => {
@@ -44,9 +46,22 @@ const Container = styled.div`
 const GridContainer = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto ;
   padding: 10px;
-  height: 1200px;
   margin-top: 200px;
+  @media (max-width: 480px) {
+    margin-top: 50px;
+    grid-template-columns: auto;
+  }
+
+`
+const SliderContainer = styled.div`
+  width: 100%;
+  height: 500px;
+  @media (max-width: 480px) {
+    width:100%;
+    height: 600px;
+
+  }
 `
 export default Home

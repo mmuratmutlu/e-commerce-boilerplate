@@ -126,12 +126,20 @@ const Container = styled.div`
 const ProductContainer = styled.div`
   display: flex;
   width: 100%;
-  height: 500px;
   margin-top: 6px;
+  @media (max-width: 480px) {
+    flex-direction:column;
+
+  }
 `
 const SliderContainer = styled.div`
   width: 55%;
-  height: 100%;
+  height: 500px;
+  @media (max-width: 480px) {
+    width:100%;
+    height: 600px;
+
+  }
 `
 const InfoContainer = styled.div`
   display: flex;
@@ -140,6 +148,11 @@ const InfoContainer = styled.div`
   height: 100%;
   padding: 5px 30px;
   gap: 30px;
+  @media (max-width: 480px) {
+    width:100%;
+    padding:0;
+    margin-top:20px;
+  }
 `
 const BigText = styled.text`
   font-size: 28px;

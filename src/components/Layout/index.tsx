@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Header, Footer } from 'components'
 import { ModalProvider } from 'context/modal-context'
 function Layout(props: any) {
-  const ignorePaths = ['/checkout','/404']
+  const ignorePaths = ['/checkout', '/404']
   if (ignorePaths.includes(props.router.route)) {
     return (
       <ModalProvider>
@@ -25,6 +25,9 @@ function Layout(props: any) {
 const Container = styled.div``
 const PageContainer = styled.div`
   padding: 0 28%;
+  @media (max-width: 480px) {
+    padding: 0 5%;
+  }
 `
 
 export default Layout
