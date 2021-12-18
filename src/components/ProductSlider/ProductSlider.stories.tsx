@@ -1,22 +1,22 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import MainSlider from '../MainSlider'
+import ProductSlider from '../ProductSlider'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'Example/MainSlider',
-  component: MainSlider,
+  component: ProductSlider,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     productName: 'Test',
     storeName: 'ssss',
   },
-} as unknown as ComponentMeta<typeof MainSlider>
+} as unknown as ComponentMeta<typeof ProductSlider>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof MainSlider> = (args:any) => (
-  <MainSlider {...args} />
+const Template: ComponentStory<typeof ProductSlider> = (args: any) => (
+  <ProductSlider {...args} />
 )
 
 export const Primary = Template.bind({})

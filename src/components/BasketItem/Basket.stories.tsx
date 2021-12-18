@@ -15,7 +15,7 @@ export default {
 } as unknown as ComponentMeta<typeof Basket>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Basket> = (args: unknown) => (
+const Template: ComponentStory<typeof Basket> = (args: any) => (
   <Basket {...args} />
 )
 

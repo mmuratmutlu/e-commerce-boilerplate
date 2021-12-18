@@ -1,8 +1,19 @@
 import styled from 'styled-components'
 import Image from 'next/image'
-import { Badge, PlainButton } from 'components'
+import { Badge, PlainButton, SearchBar, Categories } from 'components'
 import { useModal } from 'context/modal-context'
 import CounterInput from 'react-counter-input'
+const categoryArray = [
+  { name: 'Elektronik', slug: '/elektronik' },
+  { name: 'Beyaz Eşya', slug: '/beyaz-esya' },
+  { name: 'Giyim', slug: '/giyim' },
+  { name: 'Oto, Bahçe, Yapı Market', slug: '/oto-bahce-yapi-market' },
+  { name: 'Kitap', slug: '/kitap' },
+  { name: 'Film', slug: '/film' },
+  { name: 'Hobi', slug: '/hobi' },
+  { name: 'Moda', slug: '/moda' },
+  { name: 'Moda', slug: '/moda' },
+]
 function _renderBasketItem() {
   return (
     <BasketItem>
@@ -76,9 +87,7 @@ function Header() {
       </BasketModal>
     )
   }
-  function handleSearchButton() {
-    alert('hau')
-  }
+
   return (
     <Container>
       <BannerSection>
@@ -92,23 +101,25 @@ function Header() {
       <GradientLine />
 
       <Wrapper>
-        <SearchBar>
-          <SearchInput></SearchInput>
-          <SubmitButton onClick={handleSearchButton}>Ara</SubmitButton>
-        </SearchBar>
+        <Categories categoryArray={categoryArray} />
+        <SearchBar />
       </Wrapper>
     </Container>
   )
 }
 
 const Container = styled.div`
+  display:flex;
+  flex-direction:column;
+  align-items:center;
   width: 100%;
-  margin: 0 0 100px 0;
+  margin: 0 0 50px 0;
+  
 `
 const Wrapper = styled.div`
   display: flex;
-  width: 100%;
-  height: 100px;
+  flex-direction: column;
+  width: 44%;
   align-items: center;
   justify-content: center;
 `
@@ -130,7 +141,7 @@ const Icon = styled(Image)`
 
 const BasketModal = styled.div`
   position: absolute;
-  width: 400px;
+  width: 450px;
   background: white;
   top: 0px;
   right: 0px;
@@ -175,33 +186,7 @@ const NoneItem = styled.div`
   color: rgb(107 114 128);
   font-size: 18px;
 `
-const SearchBar = styled.div`
-  display: flex;
-  width: 30%;
-`
-const SearchInput = styled.input`
-  border: 1px transparent solid;
-  width: 100%;
-  background-clip: padding-box;
-  display: block;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 0.9285714286em 0.7857142857em;
-  word-break: normal;
-  line-height: inherit;
-  color: #333333;
-  border-color: #d9d9d9;
-`
-const SubmitButton = styled.button`
-  cursor: pointer !important;
-  height: 43px;
-  width: 60px;
-  padding: 0;
-  border: none;
-  background: #5c61e7;
-  color: white;
-  font-weight: bold;
-`
+
 const BasketItem = styled.div`
   display: flex;
   justify-content: space-between;

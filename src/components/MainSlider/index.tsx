@@ -28,7 +28,7 @@ function MainSlider() {
 }
 
 const Container = styled.div`
-  width: 1200px;
+  width: 100%;
 `
 const Item = styled.div`
   display: flex !important;
@@ -40,7 +40,7 @@ const Item = styled.div`
 const Slick = styled(Slider)`
   .slick-dots {
     top: 0px;
-    margin-left: 63%;
+    margin-left: 60%;
     transform: rotate(90deg);
     width:300px;
   }

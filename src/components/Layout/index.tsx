@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Header, Footer } from 'components'
 import { ModalProvider } from 'context/modal-context'
 function Layout(props: any) {
-  const ignorePaths = ['/checkout']
+  const ignorePaths = ['/checkout','/404']
   if (ignorePaths.includes(props.router.route)) {
     return (
       <ModalProvider>
